@@ -1,6 +1,6 @@
 # ec2-rotate-ip
 
-This is a script that can be run periodically to change the public-facing IP on one or more EC2 instances.
+A script that can be run periodically to change the public-facing IP on one or more EC2 instances in a region.
 
 ## Pre-requisites
 
@@ -57,5 +57,5 @@ https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-creden
 Run the following command whenever you want to rotate IPs:
 
 ```
-npx ec2-rotate-ip
+AWS_REGION=us-east-1 npx ec2-rotate-ip
 ```

@@ -1,7 +1,7 @@
 {
   "name": "ec2-rotate-ip",
-  "version": "1.0.3",
-  "description": "Script to automatically rotate an Elastic IP from within an EC2 instance",
+  "version": "1.0.4",
+  "description": "A script that can be run periodically to change the public-facing IP on one or more EC2 instances in a region",
   "keywords": [
     "AWS",
     "EC2",

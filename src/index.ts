@@ -3,20 +3,20 @@ import * as aws from "aws-sdk";
 const TagRotate = "rotate";
 const TagOne = "1";
 
-const ec2 = new aws.EC2();
-
-const addTag = (resourceId: string, tag: string, value: string) =>
-  ec2
-    .createTags({
-      Resources: [resourceId],
-      Tags: [{ Key: tag, Value: value }],
-    })
-    .promise();
-
-const getAddresses = async () =>
-  (await ec2.describeAddresses().promise()).Addresses;
-
 const main = async () => {
+  const ec2 = new aws.EC2();
+
+  const addTag = (resourceId: string, tag: string, value: string) =>
+    ec2
+      .createTags({
+        Resources: [resourceId],
+        Tags: [{ Key: tag, Value: value }],
+      })
+      .promise();
+
+  const getAddresses = async () =>
+    (await ec2.describeAddresses().promise()).Addresses;
+
   let addresses = await getAddresses();
   if (!addresses) {
     console.error("describeAddresses API did not provide an address list");
@@ -97,4 +97,7 @@ const main = async () => {
   }
 };
 
-main();
+main().catch((e) => {
+  console.error("Exiting due to error", e.message);
+  process.exit(1);
+});
