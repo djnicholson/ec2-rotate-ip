@@ -1,15 +1,31 @@
 {
   "name": "ec2-rotate-ip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Script to automatically rotate an Elastic IP from within an EC2 instance",
-  "main": "build/index.js",
+  "keywords": [
+    "AWS",
+    "EC2",
+    "IP"
+  ],
+  "homepage": "https://github.com/djnicholson/ec2-rotate-ip#readme",
+  "bugs": "https://github.com/djnicholson/ec2-rotate-ip/issues",
+  "license": "GPL-3.0",
+  "author": {
+    "name": "David Nicholson",
+    "url": "https://github.com/djnicholson"
+  },
+  "files": [
+    "**/*.js"
+  ],
+  "bin": "build/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/djnicholson/ec2-rotate-ip.git"
+  },
   "scripts": {
     "build": "cd src && tsc",
     "run": "npm run build && cd build && node ."
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@types/node": "^14.14.10",
     "aws-sdk": "^2.799.0"
