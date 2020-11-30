@@ -1,6 +1,6 @@
 {
   "name": "ec2-rotate-ip",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Script to automatically rotate an Elastic IP from within an EC2 instance",
   "keywords": [
     "AWS",
@@ -17,13 +17,14 @@
   "files": [
     "**/*.js"
   ],
-  "bin": "build/index.js",
+  "main": "build/index.js",
+  "bin": "./build/ec2-rotate-ip.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/djnicholson/ec2-rotate-ip.git"
   },
   "scripts": {
-    "build": "cd src && tsc",
+    "build": "cd src && tsc && cd ../build && echo \"#!/usr/bin/node\" > ec2-rotate-ip.js && cat index.js >> ec2-rotate-ip.js && chmod +x ec2-rotate-ip.js",
     "run": "npm run build && cd build && node ."
   },
   "devDependencies": {
