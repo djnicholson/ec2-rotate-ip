@@ -1,0 +1,1 @@
+Script to automatically rotate an Elastic IP from within an EC2 instance.
