@@ -1,6 +1,6 @@
 {
   "name": "ec2-rotate-ip",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Script to automatically rotate an Elastic IP from within an EC2 instance",
   "keywords": [
     "AWS",
@@ -28,7 +28,9 @@
     "run": "npm run build && cd build && node ."
   },
   "devDependencies": {
-    "@types/node": "^14.14.10",
+    "@types/node": "^14.14.10"
+  },
+  "dependencies": {
     "aws-sdk": "^2.799.0"
   }
 }
