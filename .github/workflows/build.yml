@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    timeout-minutes: 5
+    steps:
+      - name: 📂 Checkout
+        uses: actions/checkout@v2
+      - name: 🔌 Setup NodeJS
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+          registry-url: "https://registry.npmjs.org"
+      - name: ⏳ Install
+        run: npm ci
+      - name: 🚀 Build
+        run: npm run build
+      - name: 🌍 Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
